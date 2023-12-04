@@ -1,0 +1,33 @@
+{
+  "name": "year2023",
+  "$schema": "../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "year2023/src",
+  "projectType": "library",
+  "targets": {
+    "build": {
+      "executor": "@nx/js:tsc",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/year2023",
+        "main": "year2023/src/index.ts",
+        "tsConfig": "year2023/tsconfig.lib.json",
+        "assets": ["year2023/*.md"]
+      }
+    },
+    "lint": {
+      "executor": "@nx/eslint:lint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["year2023/**/*.ts", "year2023/package.json"]
+      }
+    },
+    "test": {
+      "executor": "@nx/jest:jest",
+      "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
+      "options": {
+        "jestConfig": "year2023/jest.config.ts"
+      }
+    }
+  },
+  "tags": []
+}
